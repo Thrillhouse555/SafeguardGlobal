@@ -2,8 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://www.saucedemo.com/',
-    projectId: "e7r1cf",
+    baseUrl: 'https://opensource-demo.orangehrmlive.com/',
     chromeWebSecurity: false,
     watchForFileChanges: false,
     //testIsolation: false,
