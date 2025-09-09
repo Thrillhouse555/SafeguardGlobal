@@ -1,14 +1,18 @@
-import MenuBar from './MenuBar';
+import TopMenu from './TopMenu';
 
 class LoginPage {
 
-    usernameField = '[data-test="username"]'
-    passwordField = '[data-test="password"]'
-    loginButton = '[data-test="login-button"]'
-    error = '[data-test="error"]'
-
+    usernameField = '[name="username"]'
+    passwordField = '[name="password"]'
+    loginButton = 'button[type="submit"]'
+  
     visit() {
       cy.visit('/');
+      this.waitForPage();
+    }
+
+    waitForPage() {
+      cy.get(this.usernameField, { timeout: 10000 }).should('be.visible');
     }
   
     fillUsername(username) {
@@ -27,17 +31,14 @@ class LoginPage {
       this.fillUsername(username);
       this.fillPassword(password);
       this.submit();
+      this.assertLoginSuccess();
     }
 
     assertLoginSuccess() {
-      cy.get(MenuBar.burgerButton).should('be.visible');
+      TopMenu.confirmHeader('Dashboard');
       cy.task('logToTerminal', `User is logged in`);
     }
   
-    assertLoginFailed(errorMessage) {
-      cy.get(this.error).should('contain.text', errorMessage);
-      cy.task('logToTerminal', `Error message: ${errorMessage}`);
-    }
   }
   
   export default new LoginPage();

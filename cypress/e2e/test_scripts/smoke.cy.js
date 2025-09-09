@@ -1,4 +1,4 @@
-describe('basic tests', () => {
+describe('Smoke Test - Login', () => {
 
   beforeEach(() => {
     cy.clearAllCookies();

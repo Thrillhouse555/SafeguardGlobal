@@ -1,23 +1,22 @@
 import LoginPage from './LoginPage';
 
-class MenuBar {
+class TopMenu {
 
-    burgerButton = '#react-burger-menu-btn'
-    logoutLink = '[data-test="logout-sidebar-link"]'
-    cartLink = '[data-test="shopping-cart-link"]'
+    dropdownTab = '.oxd-userdropdown-tab'
+    logoutLink = 'a[href*="/logout"]';
+    topbarHeader = '.oxd-topbar-header'
 
-    logout() {
-      cy.get(this.burgerButton).click();
-      cy.get(this.logoutLink).should('be.visible').click();
-      cy.get(LoginPage.loginButton).should('be.visible')
-      cy.task('logToTerminal', `User is logged out`);
+    confirmHeader(headerName) {
+      cy.get(this.topbarHeader).should('contain.text', headerName);
     }
 
-    goToCart() {
-      cy.get(this.cartLink).click();
-      cy.task('logToTerminal', `User gone to cart page`);
+    logout() {
+      cy.get(this.dropdownTab).click();
+      cy.get(this.logoutLink).should('be.visible').click();
+      cy.get(LoginPage.loginButton).should('contain.text', 'Login');
+      cy.task('logToTerminal', `User is logged out`);
     }
   }
   
-  export default new MenuBar();
+  export default new TopMenu();
   

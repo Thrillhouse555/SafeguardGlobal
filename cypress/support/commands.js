@@ -25,24 +25,12 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 import 'cypress-if';
 
-let items = false;
+Cypress.on('uncaught:exception', (err) => {
+    if (err.message.includes("Cannot read properties of undefined (reading 'response')")) {
+      return false
+    }
+  })
 
-Cypress.Commands.add('setItem', (key, value) => {
-    items[key] = value;
-    cy.writeFile('cypress/items.json', items, { timeout: 60000 });
-});
-
-Cypress.Commands.add('getItem', (key) => {
-    return items[key] ?? null;
-});
-
-Cypress.Commands.add('getItems', () => {
-    if (items) return items;
-    cy.readFile('cypress/items.json', { timeout: 10000 }).then((storedItems) => {
-        items = storedItems ?? {};
-        return items;
-    });
-});
 
 
 
