@@ -1,11 +1,18 @@
+import CandidateSection from "./RecruitmentPage/CandidateSection";
+
 class RecruitmentPage {
 
-    menuItem = '.oxd-main-menu-item'
+    navTab = '.oxd-topbar-body-nav-tab-item'
 
-    selectPage(page) {
-      cy.get(this.menuItem).contains(page).click();
-      cy.task('logToTerminal', `User selects to visit the ${page} page.`);
+    selectSection(section) {
+      cy.get(this.navTab).contains(section).click();
+      cy.task('logToTerminal', `User selects to visit the ${section} section.`);
     }
+
+    addCandidate(candidate) {
+      CandidateSection.add(candidate);
+    }
+
   }
   
   export default new RecruitmentPage();

@@ -27,11 +27,15 @@ class LoginPage {
       cy.get(this.loginButton).click();
     }
   
-    login(username, password) {
-      this.fillUsername(username);
-      this.fillPassword(password);
-      this.submit();
-      this.assertLoginSuccess();
+    login(userKey) {
+      cy.fixture('users').then((users) => {
+        const user = users[userKey];
+  
+        this.fillUsername(user.username);
+        this.fillPassword(user.password);
+        this.submit();
+        this.assertLoginSuccess();
+      });
     }
 
     assertLoginSuccess() {

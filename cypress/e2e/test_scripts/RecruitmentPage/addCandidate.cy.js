@@ -1,25 +1,26 @@
 import LoginPage from '../../../support/pages/LoginPage';
 import TopMenu from '../../../support/pages/TopMenu';
 import SideMenu from '../../../support/pages/SideMenu';
+import RecruitmentPage from '../../../support/pages/RecruitmentPage';
 
-describe('Smoke Test - Test Setup', () => {
+describe('Recruitment Page - Add Candidate', () => {
 
     beforeEach(() => {
       cy.viewport(1280, 720);
       cy.visit('/');
-      cy.fixture('users').then((users) => {
-        const user = users.standardUser;
-        LoginPage.login(user.username, user.password);
-      });
+      LoginPage.login('standardUser')
       SideMenu.selectPage('Recruitment')
     });
 
     afterEach(() => {
       TopMenu.logout();
     });
+
   
-    it('Visit Recruitment Page', () => {
-      
+    it('Add & search for candidate - george', () => {
+      RecruitmentPage.addCandidate('george');
+      RecruitmentPage.selectSection('Candidates');
+
     })
   
   })

@@ -31,6 +31,13 @@ Cypress.on('uncaught:exception', (err) => {
     }
   })
 
+  Cypress.Commands.add("inputField", (label, text) => { 
+    const gridItem = '.oxd-grid-item'
+    const fieldInput = '.oxd-input'
+    cy.get(gridItem).contains(label).should('be.visible').parents(gridItem).find(fieldInput).type(text);
+   })
+
+
 
 
 
