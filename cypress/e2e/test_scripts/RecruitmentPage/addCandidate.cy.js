@@ -49,5 +49,7 @@ describe('Recruitment Page - Add Candidate', () => {
       RecruitmentPage.searchCandidate(candidate2);
       RecruitmentPage.deleteCandidate(candidate2);
     })
+
+    //Reset Search test
   
   })
