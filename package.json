@@ -5,7 +5,7 @@
   "scripts": {
     "cy:open": "npx cypress open",
     "cy:smoke": "npx cypress run --spec=cypress/e2e/test_suites/smoke_test.cy.js",
-    "cy:full": "npx cypress run --spec=cypress/e2e/test_suites/full.cy.js"
+    "cy:recruitment": "npx cypress run --spec=cypress/e2e/test_suites/recruitment.cy.js"
   },
   "keywords": [],
   "author": "",

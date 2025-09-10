@@ -2,17 +2,10 @@ import CandidateProfile from "./CandidateProfile";
 
 class CandidateSection {
 
-    selectText = '.oxd-select-wrapper'
     gridItem = '.oxd-grid-item'
-    autocomplete = '.oxd-autocomplete-option'
     tableCard = '.oxd-table-card'
     trashButton = 'button .oxd-icon.bi-trash'
     viewButton = 'button .oxd-icon.bi-eye-fill'
-
-    useSelect(label, option) {
-        cy.get(this.gridItem).contains(label).should('be.visible').parents(this.gridItem).find(this.selectText).click();
-        cy.get('.oxd-select-dropdown').contains('.oxd-select-option', option).should('be.visible').click()
-    }
 
     add(candidateKey) {
         cy.intercept('GET', '/web/index.php/api/v2/recruitment/candidates/*').as('getCandidate');
@@ -34,7 +27,7 @@ class CandidateSection {
             const candidate = candidates[candidateKey];
             const fullName = candidate.firstName + ' ' + candidate.lastName
             cy.inputField('Candidate Name', candidate.firstName, { delay: 200 });
-            cy.get(this.autocomplete).contains(fullName).click();
+            cy.autocomplete(fullName);
             cy.inputField('Keywords', candidate.keywords);
             cy.get('button').contains('Search').click();
             cy.wait('@getCandidate');

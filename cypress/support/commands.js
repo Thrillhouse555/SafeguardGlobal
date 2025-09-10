@@ -43,6 +43,21 @@ Cypress.on('uncaught:exception', (err) => {
     cy.get(gridItem).contains(label).should('be.visible').parents(gridItem).find(fieldInput).should('have.value', text);
    })
 
+   Cypress.Commands.add("autocomplete", (fullName) => { 
+    const autocomplete = '.oxd-autocomplete-option'
+    cy.get(autocomplete).contains(fullName).click();
+   })
+
+   Cypress.Commands.add("selectDropdown", (label, option) => { 
+    const selectText = '.oxd-select-wrapper'
+    const gridItem = '.oxd-grid-item'
+    const selectOptions = '.oxd-select-option'
+    cy.get(gridItem).contains(label).should('be.visible').parents(gridItem).find(selectText).click();
+    cy.get(selectOptions).contains(option).click()
+   })
+
+
+
 
 
 

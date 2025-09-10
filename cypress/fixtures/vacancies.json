@@ -1,0 +1,23 @@
+{
+    "accountant": {
+      "name": "Accountant12345",
+      "jobTitle": "Account Assistant",
+      "description": "Accountant12345",
+      "hiringManagerFirstName": "John",
+      "hiringManagerLastName": "Doe"
+    },
+    "payroll": {
+      "name": "Payroll12345",
+      "jobTitle": "Payroll Administrator",
+      "description": "Payroll12345",
+      "hiringManagerFirstName": "John",
+      "hiringManagerLastName": "Doe"
+    },
+    "saleRep": {
+      "name": "SaleRep12345",
+      "jobTitle": "Sales Representative",
+      "description": "SaleRep12345",
+      "hiringManagerFirstName": "John",
+      "hiringManagerLastName": "Doe"
+    }
+}

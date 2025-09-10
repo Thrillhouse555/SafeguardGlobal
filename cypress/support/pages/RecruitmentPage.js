@@ -1,4 +1,5 @@
 import CandidateSection from "./RecruitmentPage/CandidateSection";
+import VacanciesSection from "./RecruitmentPage/VacanciesSection";
 
 class RecruitmentPage {
 
@@ -7,6 +8,31 @@ class RecruitmentPage {
     selectSection(section) {
       cy.get(this.navTab).contains(section).click();
       cy.task('logToTerminal', `User selects to visit the ${section} section.`);
+    }
+
+    addVacancy(vacancy) {
+      VacanciesSection.add(vacancy);
+      cy.task('logToTerminal', `Saved Vacancy: ${vacancy}`);
+    }
+
+    searchVacancy(vacancy) {
+      VacanciesSection.search(vacancy);
+      cy.task('logToTerminal', `Searched & Found Vacancy: ${vacancy}`);
+    }
+
+    deleteVacancy(vacancy) {
+      VacanciesSection.delete(vacancy);
+      cy.task('logToTerminal', `Deleted Vacancy: ${vacancy}`);
+    }
+
+    viewVacancy(vacancy) {
+      VacanciesSection.view(vacancy);
+      cy.task('logToTerminal', `Opened details for vacancy: ${vacancy}`);
+    }
+
+    editVacancy(vacancy) {
+      VacanciesSection.add(vacancy);
+      cy.task('logToTerminal', `Updated details for vacancy: ${vacancy}`);
     }
 
     addCandidate(candidate) {

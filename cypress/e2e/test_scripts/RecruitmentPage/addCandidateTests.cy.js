@@ -50,6 +50,5 @@ describe('Recruitment Page - Add Candidate', () => {
       RecruitmentPage.deleteCandidate(candidate2);
     })
 
-    //Reset Search test
   
   })
