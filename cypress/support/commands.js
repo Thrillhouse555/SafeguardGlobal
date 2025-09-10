@@ -31,10 +31,16 @@ Cypress.on('uncaught:exception', (err) => {
     }
   })
 
-  Cypress.Commands.add("inputField", (label, text) => { 
+  Cypress.Commands.add("inputField", (label, text, options) => { 
     const gridItem = '.oxd-grid-item'
-    const fieldInput = '.oxd-input'
-    cy.get(gridItem).contains(label).should('be.visible').parents(gridItem).find(fieldInput).type(text);
+    const fieldInput = 'input'
+    cy.get(gridItem).contains(label).should('be.visible').parents(gridItem).find(fieldInput).clear().type(text, options);
+   })
+
+   Cypress.Commands.add("checkField", (label, text) => { 
+    const gridItem = '.oxd-grid-item'
+    const fieldInput = 'input'
+    cy.get(gridItem).contains(label).should('be.visible').parents(gridItem).find(fieldInput).should('have.value', text);
    })
 
 

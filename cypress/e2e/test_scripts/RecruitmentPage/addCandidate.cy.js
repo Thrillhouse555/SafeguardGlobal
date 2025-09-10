@@ -17,10 +17,37 @@ describe('Recruitment Page - Add Candidate', () => {
     });
 
   
-    it('Add & search for candidate - george', () => {
-      RecruitmentPage.addCandidate('george');
+    it('Add & search for candidate - dave', () => {
+      const candidate = 'dave'
+      RecruitmentPage.addCandidate(candidate);
       RecruitmentPage.selectSection('Candidates');
+      RecruitmentPage.searchCandidate(candidate);
+      RecruitmentPage.deleteCandidate(candidate);
+    })
 
+    it('Add & view details for candidate - susan', () => {
+      const candidate = 'susan'
+      RecruitmentPage.addCandidate(candidate);
+      RecruitmentPage.selectSection('Candidates');
+      RecruitmentPage.searchCandidate(candidate);
+      RecruitmentPage.viewCandidate(candidate);
+      RecruitmentPage.checkCandidateDetails(candidate)
+      RecruitmentPage.selectSection('Candidates');
+      RecruitmentPage.searchCandidate(candidate);
+      RecruitmentPage.deleteCandidate(candidate);
+    })
+
+    it('Add & edit details for candidate - greg to steve', () => {
+      const candidate1 = 'greg'
+      const candidate2 = 'steve'
+      RecruitmentPage.addCandidate(candidate1);
+      RecruitmentPage.selectSection('Candidates');
+      RecruitmentPage.searchCandidate(candidate1);
+      RecruitmentPage.viewCandidate(candidate1);
+      RecruitmentPage.editCandidateDetails(candidate2);
+      RecruitmentPage.selectSection('Candidates');
+      RecruitmentPage.searchCandidate(candidate2);
+      RecruitmentPage.deleteCandidate(candidate2);
     })
   
   })
