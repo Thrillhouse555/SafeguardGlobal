@@ -8,28 +8,31 @@ This repository contains end-to-end tests for the **recruitment page**.
 1. **Clone this repository**
    ```bash
    git clone https://github.com/Thrillhouse555/SafeguardGlobal.git
+   ```
 
 2. **Install dependencies**   
     ```bash    
-    npm install    
+    npm install
+    ```   
 
 ### Execution
 
 Run the full suite (Candidate + Vacancy tests):
-
-    ```bash
-    npm run cy:recruitment     
-
+   ```bash
+   npm run cy:recruitment
+   ```
+    
 This command will launch Cypress and execute all E2E tests for both candidates and vacancies.
 
 ### Future Improvements
 
 If given more time, I would focus on:
 
-– Verify with more tests that candidate and vacancy workflows are integrating end-to-end with eachother but also with other features.    
-– Add a richer set of candidate and vacancy data to improve test coverage.
+- Verify with more tests that candidate and vacancy workflows are integrating end-to-end with each other but also with other features.
+- Add a richer set of candidate and vacancy data to improve test coverage.
 - Increase the data fields for the candidate and vacancy fixtures are using.
-- More test scenarios around the search functionality (resetting, missing entries, field isolation .etc)
+- More test scenarios around the search functionality (resetting, missing entries, field isolation, etc.)
+
 
 
 ### Trade-offs
