@@ -17,7 +17,9 @@ class addVacancySection {
     addHiringManager(firstName, lastName) {
         const fullName = firstName + ' ' + lastName
         cy.inputField('Hiring Manager', firstName, { delay: 200 });
-        cy.autocomplete(fullName);
+        //cy.autocomplete(fullName);
+        //HIRING MANAGER WORK AROUND
+        cy.autocomplete(firstName);
     }
 
 

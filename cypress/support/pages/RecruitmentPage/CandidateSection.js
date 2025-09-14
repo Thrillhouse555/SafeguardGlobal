@@ -7,7 +7,7 @@ class CandidateSection {
     trashButton = 'button .oxd-icon.bi-trash'
     viewButton = 'button .oxd-icon.bi-eye-fill'
 
-    add(candidateKey) {
+    add(candidateKey, option) {
         cy.intercept('GET', '/web/index.php/api/v2/recruitment/candidates/*').as('getCandidate');
         cy.fixture('candidates').then((candidates) => {
           const candidate = candidates[candidateKey];
@@ -16,6 +16,10 @@ class CandidateSection {
           CandidateProfile.addLastName(candidate.lastName);
           CandidateProfile.addEmail(candidate.email);
           CandidateProfile.addKeywords(candidate.keywords);
+          if (option === 'addVacancy') {
+            CandidateProfile.addVacancy(candidate.vacancy);
+            cy.task('logToTerminal', `Added vancancy to candidate: ${candidate.vacancy}`);
+          }
           cy.get('button').contains('Save').click();
         });
         cy.wait('@getCandidate');

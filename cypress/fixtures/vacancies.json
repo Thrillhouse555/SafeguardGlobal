@@ -19,5 +19,12 @@
       "description": "SaleRep12345",
       "hiringManagerFirstName": "John",
       "hiringManagerLastName": "Doe"
+    },
+    "QALead": {
+      "name": "QALead12345",
+      "jobTitle": "QA Lead",
+      "description": "QALead12345",
+      "hiringManagerFirstName": "John",
+      "hiringManagerLastName": "Doe"
     }
 }

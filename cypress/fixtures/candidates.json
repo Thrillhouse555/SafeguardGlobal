@@ -22,5 +22,12 @@
       "lastName": "Test",
       "email": "QA123@testr.com",
       "keywords": "susan123"
+    },
+    "george": {
+      "firstName": "George",
+      "lastName": "Test",
+      "email": "QA123@testr.com",
+      "keywords": "george123",
+      "vacancy": "LimitedTime12345"
     }
 }

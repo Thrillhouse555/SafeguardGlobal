@@ -31,7 +31,7 @@ class RecruitmentPage {
     }
 
     editVacancy(vacancy) {
-      VacanciesSection.add(vacancy);
+      VacanciesSection.edit(vacancy);
       cy.task('logToTerminal', `Updated details for vacancy: ${vacancy}`);
     }
 

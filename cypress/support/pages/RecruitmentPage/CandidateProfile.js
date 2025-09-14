@@ -20,6 +20,10 @@ class CandidateProfile {
         cy.inputField('Keywords', keywords)
     }
 
+    addVacancy(vacancy) {
+        cy.selectDropdown('Vacancy', vacancy)
+    }
+
     checkFirstName(firstName) {
         cy.get(this.firstNameField).should('have.value', firstName);
     }

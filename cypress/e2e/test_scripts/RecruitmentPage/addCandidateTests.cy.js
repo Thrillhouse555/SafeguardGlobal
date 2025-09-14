@@ -3,7 +3,7 @@ import TopMenu from '../../../support/pages/TopMenu';
 import SideMenu from '../../../support/pages/SideMenu';
 import RecruitmentPage from '../../../support/pages/RecruitmentPage';
 
-describe('Recruitment Page - Add Candidate', () => {
+describe('Recruitment Page - Add Candidate Test Scenarios', () => {
 
     beforeEach(() => {
       cy.viewport(1280, 720);

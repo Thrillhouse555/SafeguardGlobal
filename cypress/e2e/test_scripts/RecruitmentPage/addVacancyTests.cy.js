@@ -3,7 +3,7 @@ import TopMenu from '../../../support/pages/TopMenu';
 import SideMenu from '../../../support/pages/SideMenu';
 import RecruitmentPage from '../../../support/pages/RecruitmentPage';
 
-describe('Recruitment Page - Add Vancancy', () => {
+describe('Recruitment Page - Add Vancancy Test Scenarios', () => {
 
     beforeEach(() => {
       cy.viewport(1280, 720);
@@ -16,9 +16,6 @@ describe('Recruitment Page - Add Vancancy', () => {
       TopMenu.logout();
     });
 
-    //SORT MISSING HIRING MANAGER ISSUE
-    //Will have to write item for user's name and use for adding 
-
   
     it('Add & search for vacancy - accountant', () => {
       const vacancy = "accountant"
@@ -30,18 +27,35 @@ describe('Recruitment Page - Add Vancancy', () => {
       
     })
 
-    it('Add & edit details for vacancy - accountant to payroll', () => {
+    it('Add & edit details for vacancy - payroll to saleRep', () => {
       const vacancy1 = "payroll"
-      const vacancy2 = "accountant"
+      const vacancy2 = "saleRep"
       RecruitmentPage.selectSection('Vacancies');
       RecruitmentPage.addVacancy(vacancy1);
       RecruitmentPage.selectSection('Vacancies');
       RecruitmentPage.searchVacancy(vacancy1);
       RecruitmentPage.viewVacancy(vacancy1);
       RecruitmentPage.editVacancy(vacancy2);
+      RecruitmentPage.selectSection('Vacancies');
       RecruitmentPage.searchVacancy(vacancy2);
       RecruitmentPage.deleteVacancy(vacancy2);
       
+    })
+
+    it('Add vancancy, add candidate with vacancy - George, QALead', () => {
+      const vacancy = "QALead"
+      const candidate = "george"
+      RecruitmentPage.selectSection('Vacancies');
+      RecruitmentPage.addVacancy(vacancy);
+      RecruitmentPage.selectSection('Candidates');
+      RecruitmentPage.addCandidate(candidate, 'addVacancy');
+      RecruitmentPage.selectSection('Candidates');
+      RecruitmentPage.searchCandidate(candidate);
+      RecruitmentPage.deleteCandidate(candidate);
+      RecruitmentPage.selectSection('Vacancies');
+      RecruitmentPage.searchVacancy(vacancy);
+      RecruitmentPage.deleteVacancy(vacancy);
+
     })
 
   
